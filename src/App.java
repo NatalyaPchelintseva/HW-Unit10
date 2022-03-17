@@ -12,14 +12,17 @@ public class App {
         if (inputFile.isFile()) {
             String line = reader.readLine();
             while (line != null) {
-                System.out.println(line);
-                fout.write(line + '\n');
+                String[] words = line.split("[ ,]");
+                for (String word : words) {
+                    if (word.startsWith("a") || word.startsWith("A")) {
+                        fout.write(word + " ");
+                    };
+                }
                 line = reader.readLine();
             }
         }
-
         fin.close();
         fout.close();
-
     }
 }
+
